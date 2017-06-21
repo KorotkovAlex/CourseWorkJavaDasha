@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+        <link href="style/style.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/css/uikit.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/js/uikit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/js/uikit-icons.min.js"></script>
+    </head>
+    <body>
+        <h:form>
+            <ui:include src="../header.xhtml"/> 
+            <div>Привет, это твой личный кабинет</div> 
+            <h:outputText  value="#{paymentManagedBean.find(request.remoteUser)}"/>
+            <h:outputText value="#{paymentManagedBean.paymentsystem1.balance}"/>     
+            <h:outputText value="#{paymentManagedBean.paymentsystem1.login}"/>
+            <h:outputText value="#{paymentManagedBean.paymentsystem1.firstName}"/>
+            <h:outputText value="#{paymentManagedBean.paymentsystem1.lastName}"/>
+            <h:outputText value="#{paymentManagedBean.paymentsystem1.phone}"/>        
+            <h:outputText value="#{paymentManagedBean.paymentsystem1.passportData}"/>          
+            <div>
+                <c:if test="#{request.isUserInRole('Client')}">
+                    <c:forEach var="item" items="#{orderManagedBean.findAll()}">
+                        <c:if test="#{request.remoteUser == item.userLogin.login}">
+                            <div>
+                                <h:outputText value="#{item.idOrder}"/>
+                                <h:outputText value="#{item.orderData}"/>
+                                <h:outputText value="#{item.quantityOfProducts}"/>
+                                <h:outputText value="#{item.orderNumber}"/>        
+                                <h:outputText value="#{item.orderStatus}"/>
+                                <h:outputText value="#{item.orderPrice}"/>
+                                <h:outputText value="#{item.userLogin}"/>
+                            </div>
+                        </c:if>
+                    </c:forEach>
+                </c:if>
+                <c:if test="#{request.isUserInRole('Admin')}">
+                    <c:forEach var="item" items="#{orderManagedBean.findAll()}">
+                            <div>
+                                <h:outputText value="#{item.idOrder}"/>
+                                <h:outputText value="#{item.orderData}"/>
+                                <h:outputText value="#{item.quantityOfProducts}"/>
+                                <h:outputText value="#{item.orderNumber}"/>        
+                                <h:outputText value="#{item.orderStatus}"/>
+                                <h:outputText value="#{item.orderPrice}"/>
+                                <h:outputText value="#{item.userLogin}"/>
+                            </div>
+                    </c:forEach>
+                </c:if>
+            </div>
+        </h:form>       
+    </body>
+</html>

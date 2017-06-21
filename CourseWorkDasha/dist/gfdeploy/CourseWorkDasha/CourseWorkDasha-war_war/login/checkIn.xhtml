@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html" 
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/css/uikit.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/js/uikit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/js/uikit-icons.min.js"></script>
+    </h:head>
+    <h:body> 
+        <f:view>
+            <h:form>
+                <ui:include src="../header.xhtml"/> 
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Login:" for="login" />
+                    <h:inputText id="login" value="#{userManagedBean.user.login}" title="Login" required="true" requiredMessage="The Login field is required."/>
+                    <h:outputLabel value="FirstName:" for="firstName" />
+                    <h:inputText id="firstName" value="#{userManagedBean.user.firstName}" title="FirstName" />
+                    <h:outputLabel value="LastName:" for="lastName" />
+                    <h:inputText id="lastName" value="#{userManagedBean.user.lastName}" title="LastName" />
+                    <h:outputLabel value="Phone:" for="phone" />
+                    <h:inputText id="phone" value="#{userManagedBean.user.phone}" title="Phone" />
+                    <h:outputLabel value="Password:" for="password" />
+                    <h:inputText id="password" value="#{userManagedBean.user.password}" title="Password" />
+                    <h:outputLabel value="Passport" for="passport" />
+                    <h:inputText id="passport" value="#{userManagedBean.user.passportData}" title="passport" />
+                    <h:commandButton value="Сохранить" action="#{userManagedBean.createNewUser()}"/>                        
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>

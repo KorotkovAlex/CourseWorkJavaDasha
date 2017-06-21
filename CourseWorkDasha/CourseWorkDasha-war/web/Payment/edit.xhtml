@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html  xmlns:h="http://xmlns.jcp.org/jsf/html"                   
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+            <h:form>
+                <h:inputText value="#{paymentManagedBean.paymentsystem.idpaymentSystem}"/>
+                <h:inputText value="#{paymentManagedBean.paymentsystem.balance}"/>
+                <h:inputText value="#{paymentManagedBean.paymentsystem.securityCode}"/>
+                <h:inputText value="#{paymentManagedBean.paymentsystem.accountNumber}"/>        
+                <h:inputText value="#{paymentManagedBean.paymentsystem.firstName}"/>
+                <h:inputText value="#{paymentManagedBean.paymentsystem.lastName}"/>
+                <h:inputText value="#{paymentManagedBean.paymentsystem.passportData}"/>
+                <h:inputText value="#{paymentManagedBean.paymentsystem.phone}"/>
+                <h:commandButton value="Сохранить" action="#{paymentManagedBean.edit()}">
+                </h:commandButton> 
+            </h:form>
+    </h:body>
+</html>

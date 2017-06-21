@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/css/uikit.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/js/uikit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/js/uikit-icons.min.js"></script>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:form>
+            <ui:include src="../header.xhtml"/> 
+            <h:commandLink  action="add.xhtml"> 
+                Добавить
+            </h:commandLink>           
+            <f:view>
+                <h:form>
+                    <h1><h:outputText value="List"/></h1>
+                    <h:dataTable value="#{orderManagedBean.findAll()}" var="item">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="IdOrder"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idOrder}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="OrderData"/>
+                            </f:facet>
+                            <h:outputText value="#{item.orderData}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="QuantityOfProducts"/>
+                            </f:facet>
+                            <h:outputText value="#{item.quantityOfProducts}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="OrderNumber"/>
+                            </f:facet>
+                            <h:outputText value="#{item.orderNumber}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="OrderStatus"/>
+                            </f:facet>
+                            <h:outputText value="#{item.orderStatus}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="OrderPrice"/>
+                            </f:facet>
+                            <h:outputText value="#{item.orderPrice}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="UserLogin"/>
+                            </f:facet>
+                            <h:outputText value="#{item.userLogin}"/>
+                        </h:column>
+                        
+                    </h:dataTable>
+                </h:form>
+            </f:view>
+        </h:form>
+    </body>
+</html>

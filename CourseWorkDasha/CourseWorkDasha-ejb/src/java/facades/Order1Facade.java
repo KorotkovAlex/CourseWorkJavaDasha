@@ -1,0 +1,32 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package facades;
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import model.Order1;
+
+/**
+ *
+ * @author Саня
+ */
+@Stateless
+public class Order1Facade extends AbstractFacade<Order1> implements Order1FacadeLocal {
+
+    @PersistenceContext(unitName = "CourseWorkDasha-ejbPU")
+    private EntityManager em;
+
+    @Override
+    protected EntityManager getEntityManager() {
+        return em;
+    }
+
+    public Order1Facade() {
+        super(Order1.class);
+    }
+    
+}

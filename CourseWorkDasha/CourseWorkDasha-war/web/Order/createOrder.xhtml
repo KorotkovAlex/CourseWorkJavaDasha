@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html" 
+    xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body> 
+         <f:view>
+                <h:form>
+                    <h1><h:outputText value="Create/Edit"/></h1>
+                    Вы заказали:
+                    <h:outputText value="#{orderManagedBean.product.name}"/>
+                    <h:outputText value="#{orderManagedBean.product.price}"/>
+                    <h:outputText value="#{orderManagedBean.product.technicalDescription}"/>                    
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="QuantityOfProducts:" for="quantityOfProducts" />
+                        <h:inputText id="quantityOfProducts" value="#{orderManagedBean.order1.quantityOfProducts}" title="QuantityOfProducts" />
+                        <h:outputText  id="login" value="#{orderManagedBean.user.login = request.remoteUser}" title="QuantityOfProducts" />
+                    </h:panelGrid>
+                    <h:commandLink value="Сделать заказ" action="#{orderManagedBean.createOrderAndPayment()}"/>
+                </h:form>
+            </f:view>
+    </h:body>
+</html>

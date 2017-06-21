@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html  xmlns:h="http://xmlns.jcp.org/jsf/html"                   
+       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="IdOrder:" for="idOrder" />
+                    <h:inputText id="idOrder" value="#{orderManagedBean.order1.idOrder}" title="IdOrder" required="true" requiredMessage="The IdOrder field is required."/>
+                    <h:outputLabel value="OrderData:" for="orderData" />
+                    <h:inputText id="orderData" value="#{orderManagedBean.order1.orderData}" title="OrderData" />
+                    <h:outputLabel value="QuantityOfProducts:" for="quantityOfProducts" />
+                    <h:inputText id="quantityOfProducts" value="#{orderManagedBean.order1.quantityOfProducts}" title="QuantityOfProducts" />
+                    <h:outputLabel value="OrderNumber:" for="orderNumber" />
+                    <h:inputText id="orderNumber" value="#{orderManagedBean.order1.orderNumber}" title="OrderNumber" />
+                    <h:outputLabel value="OrderStatus:" for="orderStatus" />
+                    <h:inputText id="orderStatus" value="#{orderManagedBean.order1.orderStatus}" title="OrderStatus" />
+                    <h:outputLabel value="OrderPrice:" for="orderPrice" />
+                    <h:inputText id="orderPrice" value="#{orderManagedBean.order1.orderPrice}" title="OrderPrice" />
+                    <h:outputLabel value="UserLogin:" for="userLogin" />
+                    <h:selectOneMenu id="userLogin" value="#{orderManagedBean.order1.userLogin}" title="UserLogin" required="true" requiredMessage="The UserLogin field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{fixme}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="IdProduct:" for="idProduct" />
+                    <h:selectOneMenu id="idProduct" value="#{orderManagedBean.order1.idProduct}" title="IdProduct" required="true" requiredMessage="The IdProduct field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{fixme}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
